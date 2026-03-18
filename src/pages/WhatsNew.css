@@ -5,7 +5,7 @@
 .whatsNewHero {
   background-color: var(--bg-secondary);
   text-align: center;
-  padding: 4em 2em;
+  padding: 4em 2em 2em;
 }
 
 .whatsNewHero h1 {
@@ -20,20 +20,66 @@
   color: var(--text-secondary);
 }
 
-.heroArticle {
-  max-width: 1200px;
-  margin: 2em auto;
-  padding: 0 2em;
+/* Tab Navigation */
+.wnTabs {
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 40%, #0f3460 70%, #1a1a2e 100%);
+  padding: 1.2em 2em;
+  position: sticky;
+  top: 60px;
+  z-index: 10;
 }
 
-.heroArticleCard {
+.wnTabList {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wnTab {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.8em 1.8em;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  position: relative;
+  transition: all 250ms ease;
+  white-space: nowrap;
+  border-radius: 0.5em;
+}
+
+.wnTab:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.wnTabActive {
+  color: #fff;
+  background: linear-gradient(135deg, #e07b00, #ff9a3c);
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(224, 123, 0, 0.35);
+}
+
+/* Tab Content */
+.wnTabContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5em 2em;
+}
+
+/* ===== Showcase Arena ===== */
+.showcaseSection .heroArticleCard {
   position: relative;
   border-radius: 1em;
   overflow: hidden;
   cursor: pointer;
+  margin-bottom: 2.5em;
 }
 
-.heroArticleCard img {
+.showcaseSection .heroArticleCard img {
   width: 100%;
   display: block;
 }
@@ -80,24 +126,11 @@
   margin-top: 0.5em;
 }
 
-.articlesSection {
-  padding: 3em 2em;
-  text-align: center;
-}
-
-.articlesSection h2 {
-  font-size: 3.8rem;
-  font-weight: 600;
-  margin-bottom: 1.5em;
-  color: gray;
-}
-
+/* Shared articles grid */
 .articlesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2em;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .articleCard {
@@ -152,62 +185,299 @@
   line-height: 1.5;
 }
 
-.pressSection {
+/* ===== Promotions ===== */
+.promosGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+}
+
+.promoCard {
   background-color: var(--bg-secondary);
-  padding: 3em 2em;
-  text-align: center;
+  border-radius: 1em;
+  overflow: hidden;
+  transition: transform 250ms ease, box-shadow 250ms ease;
 }
 
-.pressSection h2 {
-  font-size: 3.8rem;
+.promoCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.promoImgWrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.promoImgWrap img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 300ms ease;
+}
+
+.promoCard:hover .promoImgWrap img {
+  transform: scale(1.05);
+}
+
+.promoBadge {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.35em 0.8em;
+  border-radius: 1em;
+  background: linear-gradient(135deg, #e07b00, #ff9a3c);
+  color: #fff;
+}
+
+.promoInfo {
+  padding: 1.5em;
+}
+
+.promoInfo h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4em;
+}
+
+.promoInfo p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.2em;
+}
+
+.promoBtn {
+  background: linear-gradient(135deg, #e07b00, #ff9a3c);
+  color: #fff;
+  border: none;
+  padding: 0.6em 1.6em;
+  border-radius: 0.5em;
+  font-size: 0.82rem;
   font-weight: 600;
-  margin-bottom: 1.5em;
-  color: gray;
+  cursor: pointer;
+  transition: opacity 200ms ease, transform 200ms ease;
 }
 
-.pressList {
-  max-width: 800px;
-  margin: 0 auto;
+.promoBtn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ===== Upcoming Events ===== */
+.eventsList {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1.2em;
 }
 
-.pressItem {
+.wnEventCard {
+  display: flex;
+  gap: 1.5em;
+  background-color: var(--bg-secondary);
+  border-radius: 1em;
+  padding: 1.5em;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+  cursor: pointer;
+}
+
+.wnEventCard:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.eventDateBlock {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 0.8em;
+  background: linear-gradient(135deg, #0f3460, #1a1a3e);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+body.dark .eventDateBlock {
+  background: linear-gradient(135deg, #2a2a4e, #1a1a3e);
+}
+
+.eventMonth {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ff9a3c;
+}
+
+.eventDay {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.eventBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.eventTop {
   display: flex;
   align-items: center;
-  gap: 1.5em;
-  padding: 1.2em 1.5em;
-  border-bottom: 1px solid var(--bg-tertiary);
-  cursor: pointer;
-  transition: background-color 200ms ease;
-  text-align: left;
+  gap: 0.8em;
+  margin-bottom: 0.4em;
+  flex-wrap: wrap;
 }
 
-.pressItem:hover {
-  background-color: var(--bg-primary);
+.eventTop h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
-.pressDate {
-  font-size: 0.85rem;
+.eventBadge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3em 0.7em;
+  border-radius: 1em;
+  background: rgba(0, 200, 100, 0.1);
+  color: #00c864;
+}
+
+.eventBadge--registrationopen {
+  background: rgba(0, 200, 100, 0.1);
+  color: #00c864;
+}
+
+.eventBadge--upcoming {
+  background: rgba(0, 150, 255, 0.1);
+  color: #0096ff;
+}
+
+.eventBadge--comingsoon {
+  background: rgba(255, 165, 0, 0.1);
+  color: #e07b00;
+}
+
+.eventBadge--savethedate {
+  background: rgba(138, 43, 226, 0.1);
+  color: #8a2be2;
+}
+
+.eventDesc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 0.5em;
+}
+
+.eventLocation {
+  font-size: 0.75rem;
   font-weight: 600;
-  color: orange;
-  min-width: 110px;
+  color: var(--text-secondary);
+  opacity: 0.7;
 }
 
-.pressItem h3 {
+/* ===== Customer Stories ===== */
+.storiesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+}
+
+.storyCard {
+  background-color: var(--bg-secondary);
+  border-radius: 1em;
+  padding: 1.8em;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.storyCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.storyHeader {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1.2em;
+}
+
+.storyAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.storyName {
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 700;
+  margin-bottom: 0.1em;
 }
 
+.storyRole {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.storyQuote {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0 0 1.2em;
+  padding-left: 1em;
+  border-left: 3px solid #ff9a3c;
+}
+
+.storyFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.storyProduct {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.3em 0.8em;
+  border-radius: 1em;
+  background: rgba(224, 123, 0, 0.08);
+  color: #e07b00;
+}
+
+body.dark .storyProduct {
+  background: rgba(255, 154, 60, 0.12);
+  color: #ff9a3c;
+}
+
+.storyStars {
+  display: flex;
+  gap: 0.15em;
+}
+
+.starFilled {
+  color: #ff9a3c;
+  font-size: 0.9rem;
+}
+
+.starEmpty {
+  color: var(--bg-tertiary);
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 1024px) {
   .whatsNewHero h1 {
     font-size: 3rem;
-  }
-
-  .articlesSection h2,
-  .pressSection h2 {
-    font-size: 2.5rem;
   }
 
   .articlesGrid {
@@ -217,11 +487,20 @@
   .heroArticleOverlay h2 {
     font-size: 1.2rem;
   }
+
+  .wnTabList {
+    gap: 0.4em;
+  }
+
+  .wnTab {
+    padding: 0.7em 1.2em;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
   .whatsNewHero {
-    padding: 2.5em 1em;
+    padding: 2.5em 1em 1.5em;
   }
 
   .whatsNewHero h1 {
@@ -232,15 +511,25 @@
     font-size: 0.9rem;
   }
 
-  .articlesSection h2,
-  .pressSection h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1em;
+  .wnTabs {
+    padding: 0.8em 0.5em;
+    overflow-x: auto;
   }
 
-  .heroArticle {
-    padding: 0 1em;
-    margin: 1em auto;
+  .wnTabList {
+    justify-content: flex-start;
+    min-width: max-content;
+    padding: 0 0.5em;
+    gap: 0.3em;
+  }
+
+  .wnTab {
+    padding: 0.6em 1em;
+    font-size: 0.88rem;
+  }
+
+  .wnTabContent {
+    padding: 1.5em 1em;
   }
 
   .heroArticleOverlay {
@@ -252,12 +541,7 @@
   }
 
   .heroArticleOverlay p {
-    font-size: 0.75rem;
     display: none;
-  }
-
-  .articlesSection {
-    padding: 2em 1em;
   }
 
   .articlesGrid {
@@ -265,23 +549,28 @@
     gap: 1.5em;
   }
 
-  .pressSection {
-    padding: 2em 1em;
+  .promosGrid {
+    grid-template-columns: 1fr;
   }
 
-  .pressItem {
+  .storiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wnEventCard {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.3em;
-    padding: 1em;
+    gap: 1em;
   }
 
-  .pressDate {
-    min-width: auto;
-    font-size: 0.8rem;
+  .eventDateBlock {
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    padding: 0.5em 1em;
+    gap: 0.5em;
   }
 
-  .pressItem h3 {
-    font-size: 0.85rem;
+  .eventDay {
+    font-size: 1.1rem;
   }
 }

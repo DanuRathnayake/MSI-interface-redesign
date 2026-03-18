@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/msi-logo.png'
 import addUser from '../assets/add-user.png'
 import searchIcon from '../assets/search-interface-symbol.png'
@@ -20,12 +20,12 @@ export default function Header({ darkMode, onToggle }) {
           <span className={menuOpen ? 'bar open' : 'bar'}></span>
         </button>
         <ul className={menuOpen ? 'navOpen' : ''}>
-          <li><Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link></li>
-          <li><Link to="/aiot-solutions" onClick={() => setMenuOpen(false)}>AIoT Solutions</Link></li>
-          <li><Link to="/community" onClick={() => setMenuOpen(false)}>Community</Link></li>
-          <li><Link to="/whats-new" onClick={() => setMenuOpen(false)}>What's New</Link></li>
-          <li><Link to="/support" onClick={() => setMenuOpen(false)}>Support</Link></li>
-          <li><Link to="/future-trends" onClick={() => setMenuOpen(false)}>Future Trends</Link></li>
+          <li><NavLink to="/products" onClick={() => setMenuOpen(false)}>Products</NavLink></li>
+          <li><NavLink to="/aiot-solutions" onClick={() => setMenuOpen(false)}>AIoT Solutions</NavLink></li>
+          <li><NavLink to="/community" onClick={() => setMenuOpen(false)}>Community</NavLink></li>
+          <li><NavLink to="/whats-new" onClick={() => setMenuOpen(false)}>What's New</NavLink></li>
+          <li><NavLink to="/support" onClick={() => setMenuOpen(false)}>Support</NavLink></li>
+          <li><NavLink to="/future-trends" onClick={() => setMenuOpen(false)}>Future Trends</NavLink></li>
         </ul>
         <div className="headerRight">
           <div className="themeSwitch">

@@ -42,6 +42,10 @@ header li a:hover {
   color: orange;
 }
 
+header li a.active {
+  color: orange;
+}
+
 header .logo {
   height: 4em;
   filter: var(--icon-filter);
